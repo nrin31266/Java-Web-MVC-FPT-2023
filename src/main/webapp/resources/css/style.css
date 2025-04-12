@@ -1,5 +1,8 @@
+@import url("/resources/css/tailwind.min.css");
+
 .title{
     font-size: 18px;
     font-weight: bold;
     color: brown;
 }
+

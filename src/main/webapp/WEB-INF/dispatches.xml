@@ -62,8 +62,9 @@
 
     <tx:annotation-driven transaction-manager="transactionManager" />
 
-    <!-- Static Resources -->
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/" />
     <mvc:resources location="/resources/" mapping="/resources/**"/>
+
 
     <!-- View Resolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
