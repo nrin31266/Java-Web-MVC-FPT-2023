@@ -15,10 +15,14 @@
            http://www.springframework.org/schema/data/jpa
         	http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+    <mvc:annotation-driven validator="validator"/>
+
+
     <!-- Scan component -->
-    <context:component-scan base-package="com.example.app" />
+    <context:component-scan base-package="com.rin.app" />
     <!-- Quét các Repository trong package -->
-    <jpa:repositories base-package="com.example.app.repository" />
+    <jpa:repositories base-package="com.rin.app.repository" />
     <!--    auditing-->
     <jpa:auditing />
 
@@ -27,7 +31,7 @@
     <!-- DataSource -->
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/mvc_hibernate?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/fpt1?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC" />
         <property name="username" value="root" />
         <property name="password" value="root" />
         <!-- Connection Pool tối ưu -->
@@ -40,10 +44,10 @@
     <!-- Entity Manager Factory -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.example.app.entity" />
+        <property name="packagesToScan" value="com.rin.app.entity" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+<!--                <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />-->
                 <property name="showSql" value="true" />
             </bean>
         </property>

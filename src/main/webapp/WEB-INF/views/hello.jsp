@@ -19,7 +19,10 @@
 
 </head>
 <body>
-    <h1 class="title">${title} </h1> <br>
-    <button class="btn btn-dark">Bootstrap Button</button>
+<h1 class="title">${title} </h1> <br>
+<button class="btn-primary btn"
+        onclick="window.location.href='${pageContext.request.contextPath}/SinhVienTotNghiep/add'">
+    Add User
+</button>
 </body>
 </html>

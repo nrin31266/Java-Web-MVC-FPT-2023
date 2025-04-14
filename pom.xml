@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.rin</groupId>
-  <artifactId>InitSpringMVC_3_2024</artifactId>
+  <artifactId>JavaWebFPT2023</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>InitSpringMVC_3_2024 Maven Webapp</name>
+  <name>JavaWebFPT2023</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -120,7 +120,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>InitSpringMVC_3_2024</finalName>
+    <finalName>JavaWebFPT2023</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

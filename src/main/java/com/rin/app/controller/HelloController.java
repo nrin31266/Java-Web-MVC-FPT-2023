@@ -1,4 +1,4 @@
-package com.example.app.controller;
+package com.rin.app.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +11,6 @@ public class HelloController {
     @GetMapping
     public String hello(Model model) {
         model.addAttribute("title", "Hello World");
-
         return "hello";
     }
 }
