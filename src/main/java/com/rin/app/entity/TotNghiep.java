@@ -27,7 +27,7 @@ public class TotNghiep {
     @Id
     private String maNganh;
 
-    @JsonBackReference
+    
     @ManyToOne
     private SinhVien sinhVien;
 

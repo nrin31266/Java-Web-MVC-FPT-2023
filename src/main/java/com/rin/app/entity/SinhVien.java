@@ -1,10 +1,8 @@
 package com.rin.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
@@ -16,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@ToString(exclude = {"totNghieps", "congViecs"})
 public class SinhVien {
     @Id
     String soCMND;
@@ -26,8 +25,10 @@ public class SinhVien {
 
 
 
+
     @OneToMany(mappedBy = "sinhVien", cascade = CascadeType.ALL, orphanRemoval = true)
     List<TotNghiep> totNghieps = new ArrayList<>();
+
 
     @OneToMany(mappedBy = "sinhVien", cascade = CascadeType.ALL, orphanRemoval = true)
     List<CongViec> congViecs = new ArrayList<>();

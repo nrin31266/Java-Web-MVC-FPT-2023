@@ -15,6 +15,11 @@
            http://www.springframework.org/schema/data/jpa
         	http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
+    <!-- Cấu hình OpenSessionInViewFilter -->
+<!--    <bean id="openSessionInViewFilter" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter" />-->
+
+
+
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
     <mvc:annotation-driven validator="validator"/>
 
@@ -55,6 +60,7 @@
             <props>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
             </props>
         </property>
     </bean>

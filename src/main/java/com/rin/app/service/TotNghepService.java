@@ -1,12 +1,12 @@
 package com.rin.app.service;
 
 import com.rin.app.dto.request.SinhVienTotNghiepRequest;
-import com.rin.app.entity.SinhVien;
-import com.rin.app.entity.TotNghiep;
-import com.rin.app.entity.TotNghiepId;
+import com.rin.app.entity.*;
 import com.rin.app.mapper.AppMapper;
+import com.rin.app.repository.NganhRepository;
 import com.rin.app.repository.SinhVienRepository;
 import com.rin.app.repository.TotNghiepRepository;
+import com.rin.app.repository.TruongRepository;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -22,11 +22,14 @@ public class TotNghepService {
     SinhVienRepository sinhVienRepository;
     TotNghiepRepository totNghiepRepository;
     AppMapper appMapper;
+    NganhRepository nganhRepository;
+    TruongRepository truongRepository;
 
     @Transactional
     public void SinhVienTotNghiep(SinhVienTotNghiepRequest request){
         SinhVien sinhVien = sinhVienRepository.findById(request.getSoCMND()).orElse(null);
-
+        Nganh nganh = nganhRepository.findById(request.getMaNganh()).orElseThrow(()->new RuntimeException("Nganh khong ton tai"));
+        Truong truong = truongRepository.findById(request.getMaTruong()).orElseThrow(()->new RuntimeException("Truong khong ton tai"));
         if(sinhVien != null){
             TotNghiep totNghiep = totNghiepRepository.findById(new TotNghiepId(request.getSoCMND(),
                     request.getMaTruong(), request.getMaNganh())).orElse(null);
@@ -38,6 +41,11 @@ public class TotNghepService {
             sinhVien = appMapper.toSinhVien(request);
         }
         TotNghiep newTotNghiep = appMapper.toTotNghiep(request);
+        newTotNghiep.setSinhVien(sinhVien);
+        newTotNghiep.setTruong(truong);
+        newTotNghiep.setNganh(nganh);
+
+
         sinhVien.getTotNghieps().add(newTotNghiep);
         sinhVienRepository.save(sinhVien);
     }

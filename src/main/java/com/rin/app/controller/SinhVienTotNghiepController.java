@@ -40,7 +40,7 @@ public class SinhVienTotNghiepController {
     @PostMapping("add")
     public String addSinhVienTotNghiep(@Valid @ModelAttribute("requestBody") SinhVienTotNghiepRequest requestBody, BindingResult bindingResult,Model model
      ) {
-        System.out.println("BindingResult has errors: " + bindingResult.hasErrors());
+
         if(bindingResult.hasErrors()) {
             System.out.println(bindingResult.getAllErrors());
             List<Truong> truongs = truongService.getAllTruong();
