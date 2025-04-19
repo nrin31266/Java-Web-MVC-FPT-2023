@@ -29,8 +29,16 @@ public class SinhVienTotNghiepRequest {
     String maNganh;
     String heTN;
 
+//    @NotNull(message = "Ngày tốt nghiệp là bắt buộc")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    @PastOrPresent(message = "Ngày tốt nghiệp không được nằm trong tương lai")
+//    LocalDate ngayTN;
+
     @NotNull(message = "Ngày tốt nghiệp là bắt buộc")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    LocalDate ngayTN;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    @PastOrPresent(message = "Ngày tốt nghiệp không được nằm trong tương lai")
+    LocalDateTime ngayTN;
+
+
     String loaiTN;
 }

@@ -39,7 +39,7 @@ public class TotNghiep {
 
     String heTN;
 
-    LocalDate ngayTN;
+    LocalDateTime ngayTN;
 
     String loaiTN;
 

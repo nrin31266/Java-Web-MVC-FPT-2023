@@ -81,9 +81,15 @@
                             <form:errors path="heTN" cssClass="text-danger"/>
                         </div>
 
+<%--                        <div class="mb-3">--%>
+<%--                            <label class="form-label">Ngày TN</label>--%>
+<%--                            <form:input path="ngayTN" type="date" cssClass="form-control"/>--%>
+<%--                            <form:errors path="ngayTN" cssClass="text-danger"/>--%>
+<%--                        </div>--%>
+
                         <div class="mb-3">
                             <label class="form-label">Ngày TN</label>
-                            <form:input path="ngayTN" type="date" cssClass="form-control"/>
+                            <form:input path="ngayTN" type="datetime-local" cssClass="form-control"/>
                             <form:errors path="ngayTN" cssClass="text-danger"/>
                         </div>
 

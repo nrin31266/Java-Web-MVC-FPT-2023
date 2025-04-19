@@ -2,6 +2,8 @@ package com.rin.app.controller;
 
 import com.rin.app.dto.request.SinhVienTotNghiepRequest;
 import com.rin.app.entity.Nganh;
+import com.rin.app.entity.SinhVien;
+import com.rin.app.entity.TotNghiepId;
 import com.rin.app.entity.Truong;
 import com.rin.app.service.NganhService;
 import com.rin.app.service.TotNghepService;
@@ -64,6 +66,35 @@ public class SinhVienTotNghiepController {
 
         return "redirect:/";
 
+    }
+
+    @GetMapping("{soCMND}")
+    public String SinhVienTotNghiep(@PathVariable("soCMND") String soCMND, Model model) {
+        SinhVien sinhVien = totNghepService.thongTinTotNghiep(soCMND);
+        model.addAttribute("sinhVien", sinhVien);
+        return "SinhVienTotNghiep/ChiTiet";
+    }
+
+    @PostMapping("XoaTotNghiep/{soCMND}/{maTruong}/{maNganh}")
+    public String xoaTotNghiepSv(@PathVariable("soCMND") String soCMND,
+            @PathVariable("maTruong") String maTruong,
+                                 @PathVariable("maNganh") String maNganh
+            , Model model) {
+        totNghepService.xoaTotNghiep(
+                TotNghiepId.builder()
+                        .maNganh(maNganh)
+                        .maTruong(maTruong)
+                        .soCMND(soCMND)
+                        .build()
+        );
+        SinhVien sinhVien = totNghepService.thongTinTotNghiep(soCMND);
+        model.addAttribute("sinhVien", sinhVien);
+
+        if(sinhVien.getTotNghieps().isEmpty()){
+            return "redirect:/";
+        }
+
+        return "redirect:/SinhVienTotNghiep/" + soCMND;
     }
 
 }

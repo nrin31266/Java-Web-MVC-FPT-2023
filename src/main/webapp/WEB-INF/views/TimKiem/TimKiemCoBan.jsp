@@ -81,6 +81,7 @@
                             <th scope="col">Email</th>
                             <th scope="col">Số ĐT</th>
                             <th scope="col">Địa Chỉ</th>
+                            <th scope="col">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -91,6 +92,13 @@
                                 <td>${sv.email}</td>
                                 <td>${sv.soDT}</td>
                                 <td>${sv.diaChi}</td>
+                                <td >
+                                    <button
+                                            class="btn btn-link"
+                                            onclick="window.location.href='${pageContext.request.contextPath}/SinhVienTotNghiep/${sv.soCMND}'">
+                                        Chi Tiet
+                                    </button>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>

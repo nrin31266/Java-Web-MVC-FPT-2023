@@ -44,4 +44,6 @@ public class TimKiemService {
     public  SinhVien thongTinTotNghiep(String soCNND){
         return sinhVienRepository.findBySoCMND(soCNND).orElseThrow(()->new RuntimeException("Khong tim thay sinh vien"));
     }
+
+
 }

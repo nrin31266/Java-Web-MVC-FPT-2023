@@ -50,5 +50,14 @@ public class TotNghepService {
         sinhVienRepository.save(sinhVien);
     }
 
+    public  SinhVien thongTinTotNghiep(String soCNND){
+        return sinhVienRepository.findBySoCMND(soCNND).orElseThrow(()->new RuntimeException("Khong tim thay sinh vien"));
+    }
+
+    public void xoaTotNghiep(TotNghiepId totNghiepId){
+        TotNghiep totNghiep = totNghiepRepository.findById(totNghiepId).orElseThrow(()->new RuntimeException("Nghiep khong ton tai"));
+        totNghiepRepository.delete(totNghiep);
+    }
+
 
 }
